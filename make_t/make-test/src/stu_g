@@ -1,0 +1,11 @@
+ 
+
+## static .a 
+gcc -o app hello.o math.o 
+ar rc libmath.a math.o
+gcc -o app main.o -L./ -lmath
+  
+# 动态 .so
+gcc -fPIC -shared math.c -o libmath.so
+gcc -o app2 hello.o -L./ -lmath
+ 

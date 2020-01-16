@@ -1,0 +1,69 @@
+# # INCL=-I${HOME}/incl
+
+# # .SUFFIXES: .cpp .c
+# # .cpp.o:
+# # 	g++ ${INCL} -c $<
+
+# # .c.o:
+# # 	gcc ${INCL} -c $<
+
+# # $* 　　不包含扩展名的目标文件名称。 
+# # $+ 　　所有的依赖文件，以空格分开，并以出现的先后为序，可能包含重复的依赖文件。 
+# # $< 　　第一个依赖文件的名称。 
+# # $? 　　所有的依赖文件，以空格分开，这些依赖文件的修改日期比目标的创建日期晚。 
+# # $@ 　 目标的完整名称。 
+# # $^ 　　所有的依赖文件，以空格分开，不包含重复的依赖文件。 
+# # $% 如果目标是归档成员，则该变量表示目标的归档成员名称。
+
+# #C++编译
+# # hellocpp:hellocpp.o
+# # 	echo "开始编译"
+# # 	g++ -o hellocpp hellocpp.o
+# # 	rm -f hellocpp.o
+# # 	mv hellocpp ${HOME}/bin
+# # 	echo "编译结束"
+
+# #C编译
+# # hello:hello.o
+# # 	echo "开始编译"
+# # 	gcc -o hello hello.o
+# # 	rm -f hello.o
+# # 	mv hello ${HOME}/bin
+# # 	echo "编译结束"
+
+
+
+
+
+# #最后形成的Makefile
+# INCL=-I${HOME}/incl
+# BIN=$(HOME)/bin
+# OBJ1=hellocpp.o
+# OBJ2=hello.o
+
+# .SUFFIXES: .cpp .c
+# .cpp.o:
+# 	g++ ${INCL} -c $<
+
+# .c.o:
+# 	gcc ${INCL} -c $<
+
+# all:  hello
+
+# #C++编译
+# # hellocpp:${OBJ1}
+# # 	@echo "============开始编译============"
+# # 	g++ -o $@ $?
+# # 	@rm -f ${OBJ1}
+# # 	@mv $@ ${BIN}
+# # 	@echo "============编译结束============"
+# # 	@echo ""
+
+# #C编译
+# hello:${OBJ2}
+# 	@echo "============开始编译============"
+# 	gcc -o $@ $?
+# 	@rm -f ${OBJ2}
+# 	@mv $@ ../bin
+# 	@echo "============编译结束============"
+# 	@echo ""

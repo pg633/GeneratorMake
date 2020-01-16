@@ -1,0 +1,10 @@
+all :
+	$(MAKE) -C src
+
+tags:
+	ctags -R
+
+clean :
+	$(MAKE) -C src clean
+
+.PHONY : all clean tags
